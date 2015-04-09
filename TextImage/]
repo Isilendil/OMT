@@ -1,0 +1,29 @@
+function preprocess()
+
+% load dataset
+load(sprintf('%s', 'birds-food'));
+
+image_num = size(image_fea, 1);
+
+index = randperm(image_num);
+
+X = image_fea(index, :);
+
+Y = image_gnd(index,:);
+for i = 1 : image_num
+	  if (Y(i) == 0)
+			  Y(i) = -1;
+		end
+end
+
+image_fea = X;
+image_gnd = Y;
+
+save('birds_food', 'image_fea', 'text_fea', 'co_image_fea', 'co_text_fea', 'image_gnd', 'text_gnd');
+
+calculate_affinity('birds_food', 'birds_food_sim');
+
+end
+
+
+

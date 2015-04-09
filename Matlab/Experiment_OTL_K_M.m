@@ -100,7 +100,7 @@ for i=1:size(ID_new,1),
     TMs_PAI(i,:) = TMs;
     
     %3. HomOTL(fixed)
-    [classifier, err_count, run_time, mistakes, mistakes_idx, SVs, TMs] = HomOTLf_K_M(Y,K,K2,options,ID,h);
+    [classifier, err_count, run_time, mistakes, mistakes_idx, SVs, TMs] = HomOTL3_K_M(Y,K,K2,options,ID,h);
     nSV_SC(i) = length(classifier.SV1)+length(classifier.SV2);
     err_SC(i) = err_count;
     time_SC(i) = run_time;
